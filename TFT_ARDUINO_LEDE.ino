@@ -182,6 +182,7 @@ static const unsigned char PROGMEM logo_clock[] =
 */
 
 String commandString;
+String old_signal="";
 
 void setup()
 {
@@ -288,8 +289,7 @@ void loop()
 void processCommand(String command)
 {
     Serial.println(command);
-
-    if (command == "sinyal100")
+    if ((command == "sinyal100") && (old_signal != "sinyal100"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -306,9 +306,10 @@ void processCommand(String command)
         tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal100";
         return;
     }
-    else if (command == "sinyal80")
+    else if ((command == "sinyal80") && (old_signal != "sinyal80"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -326,9 +327,10 @@ void processCommand(String command)
         //tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal80";
         return;
     }
-    else if (command == "sinyal60")
+    else if ((command == "sinyal60") && (old_signal != "sinyal60"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -347,9 +349,10 @@ void processCommand(String command)
         //tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal60";
         return;
     }
-    else if (command == "sinyal40")
+    else if ((command == "sinyal40") && (old_signal != "sinyal40"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -369,9 +372,10 @@ void processCommand(String command)
         //tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal40";
         return;
     }
-    else if (command == "sinyal20")
+    else if ((command == "sinyal20") && (old_signal != "sinyal20"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -392,9 +396,10 @@ void processCommand(String command)
         //tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal20";
         return;
     }
-    else if (command == "sinyal0")
+    else if ((command == "sinyal0") && (old_signal != "sinyal0"))
     {
         // digitalWrite(led, LOW); // off
         //display.clearDisplay();
@@ -416,6 +421,7 @@ void processCommand(String command)
         //tft.fillRect(465, 20, 5, 50, GREEN); //100
         //Serial.println(command);
         commandString = "";
+        old_signal = "sinyal0";
         return;
     }
     else if ((command == "kutukupret") && (command.length() <= 15))
